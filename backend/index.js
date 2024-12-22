@@ -9,7 +9,7 @@ app.use(bodyParser.json()); //parse into json
 
 const cors = require("cors");
 app.use(cors({
-    origin: "frontend_url",
+    origin: "http://localhost:5175/", //frontend url
     methods: ["GET", "POST"],
 
 }))
