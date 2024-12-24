@@ -3,7 +3,6 @@
 
 import React, { useEffect, useState } from "react";
 import FormPage from "./FormPage.jsx"
-import { use } from "react";
 import axios from "axios";
 
 //each page needs to keeps an eye of the curr page 
@@ -14,6 +13,7 @@ const MultiPageForm=()=>{
 
     const [config,setConfig]=useState(null);
     const [currPage,setCurrPage]=useState(0); 
+    //setCurrPage(0);
 
     //to store the form data entered by user
     const [formData,setFormData]=useState({});//empty obj default
@@ -63,6 +63,9 @@ const MultiPageForm=()=>{
 
 
     };
+    if(!config){
+        return <p>loading page</p>;
+    }
 
     //config -> pages ->page1,page2.....
 

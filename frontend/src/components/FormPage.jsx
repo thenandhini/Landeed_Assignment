@@ -2,7 +2,8 @@
 
 
 
-import React from "react";
+import React,{useState,useEffect} from "react";
+
 
 //receiving curr page, next page and submit as props
 
@@ -38,7 +39,7 @@ const FormPage = ({ page, onNext,isLastPage, onSubmit }) => {
         <div>
             <h2>{page.page_num}</h2>
 
-            {page.questions.map((question, index) => {
+            {page.questions.map((question, index) => (
                 //each question  has label and type . type is either select or text or number. select type has options
                 <div key={index}>
                     <label>{question.label}</label>
@@ -52,11 +53,6 @@ const FormPage = ({ page, onNext,isLastPage, onSubmit }) => {
 
                             )}
 
-                            {/* <option value ="option1">A</option>
-                            <option value="option 2">B</option> */}
-
-
-
                         </select>
 
                     ) : ( //input=> number or text . number for age and text for name
@@ -64,7 +60,7 @@ const FormPage = ({ page, onNext,isLastPage, onSubmit }) => {
 
                         //if type is number i.e for age, set min value to be zero
                         min={question.key==="age"?0:undefined}
-                        value={question.key} //***** */
+                        value={data[question.key]} //***** */
                         onChange={(e)=>handleChange(question.key,e.target.value)}
                         
                         />
@@ -74,7 +70,7 @@ const FormPage = ({ page, onNext,isLastPage, onSubmit }) => {
 
                 </div>
 
-            }
+                )
 
 
             )}
