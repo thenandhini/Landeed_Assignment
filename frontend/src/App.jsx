@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import MultiPageForm from './components/MultiPageForm'
 
 // import './App.css'
 
@@ -8,6 +9,8 @@ function App() {
     <>
       <div>
         <h1>Interest Submission Form</h1>
+        <MultiPageForm>
+        </MultiPageForm>
       </div>
      
     </>

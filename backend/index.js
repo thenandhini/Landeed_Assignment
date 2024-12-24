@@ -24,7 +24,7 @@ const config = {
     //no of form pages 
     pages: [
         {
-            Page_num: "Page 1",
+            page_num: "Page 1",
             questions: [
                 { key: "name", label: "Name", type: "text", required: true },
                 { key: "gender", label: "Gender", type: "select", options: ["M", "F", "Nonbinary"], required: true },
@@ -34,7 +34,7 @@ const config = {
         },
 
         {
-            Page_num: "Page 2",
+            page_num: "Page 2",
             questions: [
                 { key: "profession", label: "Profession", type: "select", options: ["Owner", "Agent", "Buyer", "Seller"] },
                 { key: "services", label: "What services do you need?", type: "text", required: false },

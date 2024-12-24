@@ -41,7 +41,15 @@ const MultiPageForm=()=>{
 
     const handleSubmit=(data)=>{
         //submit  form Data to backend
-        axios.post("http://localhost:2024/submit",{...formData,...data}) //merge formData with data from prev page
+        axios.post("http://localhost:2024/submit",
+         {...formData,...data},
+         {headers:{
+            "Content-Type":"application/json" //ensuring content type is JSON
+
+         }}
+
+        ) //merge formData with data from prev page
+            
 
         .then(()=>{
             alert("Yayyy! Form submitted successfully!");
@@ -63,7 +71,8 @@ const MultiPageForm=()=>{
             <FormPage
 
                 page={config.pages[currPage]}   //current page
-                Next={handleNextPage}
+                onNext={handleNextPage}
+                isLastPage={currPage===config.pages.length-1} //page 1 is arr[0] therefore minus 1
                 onSubmit={handleSubmit}
                 
             />
