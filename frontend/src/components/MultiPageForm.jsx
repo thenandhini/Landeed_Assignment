@@ -41,6 +41,9 @@ const MultiPageForm=()=>{
     };
 
     const handleSubmit=(data)=>{
+        //debug 
+
+        console.log("Submitting Data:",formData);
         //submit  form Data to backend
         axios.post("http://localhost:2024/submit",
          {...formData,...data},

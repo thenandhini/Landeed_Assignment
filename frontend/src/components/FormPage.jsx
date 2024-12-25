@@ -17,7 +17,7 @@ const FormPage = ({ page, onNext,isLastPage, onSubmit }) => {
     //state to store and track change of data fields
     const [data, setData] = useState({});
 
-    const handleChange= (Key,value)=>{
+    const handleChange= (key,value)=>{
         setData({...data,[key]:value}); //add the data in key value pairs along with existing data
 
     };
@@ -62,7 +62,7 @@ const FormPage = ({ page, onNext,isLastPage, onSubmit }) => {
 
                         //if type is number i.e for age, set min value to be zero
                         min={question.key==="age"?0:undefined}
-                        value={data[question.key]} //***** */
+                        value={data[question.key] || ""} //***** */
                         onChange={(e)=>handleChange(question.key,e.target.value)}
                         
                         />

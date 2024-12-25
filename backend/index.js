@@ -61,6 +61,8 @@ app.post("/submit", (req, res) => {
 
     try {
         const formData = req.body;
+        console.log("Form Data Received:",req.body);
+        
 
         //Receiving submission with data validation 
         if (!formData || Object.keys(formData).length === 0) //object.keys() to check if the formdata has no keys, and so no data
