@@ -9,7 +9,7 @@ app.use(bodyParser.json()); //parse into json
 
 const cors = require("cors");
 app.use(cors({
-    origin: "http://localhost:5175/", //frontend url
+    origin: "http://localhost:5173", //frontend url
     methods: ["GET", "POST"],
 
 }))
@@ -79,6 +79,6 @@ app.post("/submit", (req, res) => {
 })
 
 app.listen(2024, () => {
-    console.log("Merry Christmas!. Santa Server is listening on route 2024.");
+    console.log("Merry Christmas!. Santa's Server is listening on port 2024... ;)");
 
 });

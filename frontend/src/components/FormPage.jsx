@@ -3,6 +3,7 @@
 
 
 import React,{useState,useEffect} from "react";
+import "./FormPage.css";
 
 
 //receiving curr page, next page and submit as props
@@ -36,19 +37,20 @@ const FormPage = ({ page, onNext,isLastPage, onSubmit }) => {
 
     return (
         //selecting each question from questions using map
-        <div>
+        <div className="form-container">
             <h2>{page.page_num}</h2>
 
             {page.questions.map((question, index) => (
                 //each question  has label and type . type is either select or text or number. select type has options
-                <div key={index}>
-                    <label>{question.label}</label>
+                <div className="question" key={index}>
+                    <label>
+                        <div>{question.label}</div>
+                    </label>
                     {question.type === "select" ? (
                         <select onChange={(e) => handleChange(question.key, e.target.value)}>
 
                             {question.options.map((option, idx) => (
                                 <option key={idx} value={option}>{option}</option>
-
                             )
 
                             )}
@@ -74,7 +76,7 @@ const FormPage = ({ page, onNext,isLastPage, onSubmit }) => {
 
 
             )}
-        <button onClick={handleNext}>Next</button>
+        <button className="btn" onClick={handleNext}>{isLastPage?"Submit":"Next"}</button>
 
         </div>
     );

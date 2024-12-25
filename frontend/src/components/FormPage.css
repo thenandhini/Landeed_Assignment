@@ -1,0 +1,44 @@
+.form-container {
+    padding: 25px max( calc(25vw - 360px) , 30px);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 0.75ch;
+
+    display: grid;
+    gap: 10px;
+    background: white;
+}
+
+.form-container > h2 {
+    margin-bottom: 20px;
+}
+
+.question {
+    display: grid;
+    grid-template-columns: 4fr 6fr;    
+}
+
+.question > label {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.question > label > div {
+    display: block;
+    width: max-content;
+}
+
+.question > select,
+.question > input,
+.btn {
+    padding: 1ch 1rem;
+    background-color: whitesmoke;
+    border-radius: 0.5ch;
+    border: 1px solid black;
+}
+
+
+.btn {
+    margin-top: 20px;
+    background: rgba(23, 255, 23, 0.5);
+}

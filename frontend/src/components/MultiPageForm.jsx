@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from "react";
 import FormPage from "./FormPage.jsx"
 import axios from "axios";
+import "./MultiFormPage.css";
 
 //each page needs to keeps an eye of the curr page 
 
@@ -70,16 +71,19 @@ const MultiPageForm=()=>{
     //config -> pages ->page1,page2.....
 
     return(
-        <div>
-            <FormPage
+        <>
+                <div className="heading-container">
+                    <h1>Interest Submission Form</h1>
+                </div>
+                <FormPage
 
-                page={config.pages[currPage]}   //current page
-                onNext={handleNextPage}
-                isLastPage={currPage===config.pages.length-1} //page 1 is arr[0] therefore minus 1
-                onSubmit={handleSubmit}
-                
-            />
-        </div>
+                    page={config.pages[currPage]}   //current page
+                    onNext={handleNextPage}
+                    isLastPage={currPage===config.pages.length-1} //page 1 is arr[0] therefore minus 1
+                    onSubmit={handleSubmit}
+                    
+                />
+        </>
 
     );
 

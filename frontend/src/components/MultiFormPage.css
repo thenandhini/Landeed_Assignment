@@ -1,0 +1,11 @@
+.heading-container {
+    padding: 25px max( calc(25vw - 360px) , 30px);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 0.75ch;
+    
+    background: white;
+}
+
+.heading-container * {
+    text-align: center;
+}
