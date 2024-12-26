@@ -21,9 +21,23 @@ const FormPage = ({ page, onNext,isLastPage, onSubmit }) => {
         setData({...data,[key]:value}); //add the data in key value pairs along with existing data
 
     };
+    //validation criterial for  the fields
+    const validateFields=()=>{
+        const missingFields =page.questions
+        .filter((q)=>q.required && !data[q.key])
+        .map((q)=>q.label);
+
+        if(missingFields.length>0){
+            alert(`Please fill in:${missingFields.join(",")}`);
+            return false;
+        }
+        return true;
+    }
 
     const handleNext=()=>{
         //if last page then submit else  pass the data to OnNext
+        if(!validateFields())
+            return ;
         if(isLastPage)
         {
             onSubmit(data);

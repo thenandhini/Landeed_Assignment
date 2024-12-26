@@ -19,6 +19,8 @@ const MultiPageForm=()=>{
     //to store the form data entered by user
     const [formData,setFormData]=useState({});//empty obj default
 
+    const [timeout,setTimeoutConfig]=useState(1800); //FOR 30 MINS
+    const [isTimeOut,setIsTimeOut]=useState(false);
 
     //fetch  fields from backend dynamically
 
@@ -27,6 +29,7 @@ const MultiPageForm=()=>{
         .then((response)=>{
             setConfig(response.data);
             console.log("Fetched configuration yayyy!",response.data);
+            setTimeoutConfig(response.data.timeout || timeout);
 
         })
         .catch((error)=>{
@@ -35,14 +38,42 @@ const MultiPageForm=()=>{
 
     },[])
 
+    //handling timeout 
+    useEffect(() => {
+   
+        const timer = setTimeout(() => {
+         console.log("session timed out!")//debugging
+          setIsTimedOut(true);
+        }, timeout * 1000);
+  
+        // Clear timeout if the component unmounts
+        return () => clearTimeout(timer);
+      
+    }, [timeout]);
+   
+
+
+
+
     const handleNextPage=(data)=>{
+        if(isTimeOut)
+        {
+            alert ("Santa has left, requirement form expired !.Please refresh to call Santa over .")
+            return;
+        }
         setCurrPage((page)=>page+1);
 
     };
 
     const handleSubmit=(data)=>{
-        //debug 
+       
+        if(isTimeOut)
+        {
+            alert ("Santa has left, requirement form expired !.Please refresh to call Santa over .")
+            return;
 
+        }
+         //debug 
         console.log("Submitting Data:",formData);
         //submit  form Data to backend
         axios.post("http://localhost:2024/submit",
