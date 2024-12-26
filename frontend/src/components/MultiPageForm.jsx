@@ -43,7 +43,7 @@ const MultiPageForm=()=>{
    
         const timer = setTimeout(() => {
          console.log("session timed out!")//debugging
-          setIsTimedOut(true);
+          setIsTimeOut(true);
         }, timeout * 1000);
   
         // Clear timeout if the component unmounts
@@ -51,6 +51,14 @@ const MultiPageForm=()=>{
       
     }, [timeout]);
    
+    useEffect(()=>{
+        if(isTimeOut)
+            {
+                alert ("Santa has left, Requirement form expired!. Please refresh to call Santa over.")
+                return;
+            }
+
+    },[isTimeOut])
 
 
 

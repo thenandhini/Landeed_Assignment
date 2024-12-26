@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 const config = {
     //The timeout threshold is configurable through the config json as well
     
-    //timeout:1800, //30 mins in seconds
+    timeout:1800, //30 mins in seconds
     
     //no of form pages 
     pages: [
