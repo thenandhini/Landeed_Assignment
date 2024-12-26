@@ -40,7 +40,7 @@ const config = {
         {
             page_num: "Page 2",
             questions: [
-                { key: "profession", label: "Profession", type: "select", options: ["Owner", "Agent", "Buyer", "Seller"] },
+                { key: "profession", label: "Profession", type: "select", options: ["Owner", "Agent", "Buyer", "Seller"],required:true },
                 { key: "services", label: "What services do you need?", type: "text", required: false },
             ],
 
